@@ -5,6 +5,8 @@ $(function () {
   var saveButton = $(".saveBtn");
  
   //var timeBlock = document.createElement("div")??? or just put empty divs for each hour in html??
+    //DO IT THE SIMPLE WAY *FIRST* w/html in html file.
+      //maybe make global element to generate the time blocks, and then LATER fill them and analyze relative time??? but later.
   //for each hour according to dayjs, so they can be compared to current time more easily?
 
   // timeBlock.textContent = anHour.itemText
