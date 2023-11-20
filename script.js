@@ -1,38 +1,15 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-//var rowEl = $('<tr>')
+
 $(function () {
+    // TODO: Add code to display the current date in the header of the page.
   var today = dayjs().startOf('day');
   var displayCurrent =  $('#currentDay');
   displayCurrent.text(today);
 
-  // var agendaDisplay = $('#agenda-display');
-  // can I just do this programatically on page load? it would make more sense.
-  // var nineAm = $('.hour-nine');
-  // var tenAm = $('.hour-ten');
-  // var elevAM = $('.hour-eleven');
-  // var twelveNoon = $('.hour-twelve');
-  // var onePm = $('.hour-thirteen');
-  // var twoPm = $('.hour-fourteen');
-  // var threePm = $('.hour-fifteen');
-  // var fourPm = $('.hour-sixteen');
-  // var fivePm = $('.hour-seventeen');
-
-
-  // var taskText = ('.description') ;
-  // save time blocks to storage & make loadAgenda function? agenda starts empty but I still have to display the time
-  // var agenda = []
-
-  function makeTimeBlock(){
-  //var timeBlock = document.createElement("div")??? or just put empty divs for each hour in html??
   
-  // need parseInt for hour? different way of identifying hour????
 
-
-  
-  };
-  
 
   var saveButton = $(".saveBtn");
   function saveToTimeBlock (event) {
@@ -53,13 +30,13 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   // make var timeBlock with parseInt div id
-  if (timeBlock.isBefore(dayjs().hour() )) {
-    rowEl.addClass('past');
-  } else if (timeBlock.isSame(dayjs().hour() )) {
-    rowEl.addClass('present');
-  } else if (timeBlock.isAfter(dayjs().hour() )){
-    rowEl.addClass('future');
-  }
+  // if (timeBlock.isBefore(dayjs().hour() )) {
+  //   rowEl.addClass('past');
+  // } else if (timeBlock.isSame(dayjs().hour() )) {
+  //   rowEl.addClass('present');
+  // } else if (timeBlock.isAfter(dayjs().hour() )){
+  //   rowEl.addClass('future');
+  // }
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -76,20 +53,21 @@ $(function () {
     $('#hour-17 .description').val(localStorage.getItem('hour-17'));
   
 };
-  //
+loadAgenda();
   
   
-  // TODO: Add code to display the current date in the header of the page.
-  function displayTime() {
-    console.log("call time!");
-    //change dayjs formatting to central time
-      setInterval (function()
-    {
-      var currentTime = dayjs();
-      $("#currentDay").text(currentTime.format('dddd, MMMM DD, YYYY -- HH:mm'));
-    }, );
-    }
-    displayTime();
+
+  // don't like this one.
+  // function displayTime() {
+  //   console.log("call time!");
+  //   //change dayjs formatting to central time
+  //     setInterval (function()
+  //   {
+  //     var currentTime = dayjs();
+  //     $("#currentDay").text(currentTime.format('dddd, MMMM DD, YYYY -- HH:mm'));
+  //   }, );
+  //   }
+  //   displayTime();
 
   
 });
