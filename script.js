@@ -8,10 +8,8 @@ $(function () {
   var displayCurrent =  $('#currentDay');
   displayCurrent.text(today);
 
-  
-
-
   var saveButton = $(".saveBtn");
+
   function saveToTimeBlock (event) {
     event.preventDefault();
     console.log("save item function");
@@ -30,19 +28,24 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   function colorCode(){
+    var hour = dayjs().hour();
+    console.log(hour);
+    //
     $(".time-block").each(function (){
-      var thisHour = parseInt();
-      if (thisHour.isBefore(dayjs().hour() )) {
-        this.$('.time-block').addClass('past');
-      } else if (thisHour.isSame(dayjs().hour() )) {
-        this.$('.time-block').addClass('present');
-      } else if (thisHour.isAfter(dayjs().hour() )){
-        this.$('.time-block').addClass('future');
+      let parseHour = $(this).attr("id").split("hour");
+      let thisHour = parseInt(parseHour[1]);
+      console.log(thisHour);
+      if (thisHour < hour) {
+        $(".time-block").addClass('past');
+      } else if (thisHour === hour) {
+        $(".time-block").addClass('present');
+      } else if (thisHour > hour ){
+        $(".time-block").addClass('future');
       };
     });
   }
  
- 
+
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -60,22 +63,8 @@ $(function () {
   
 };
 loadAgenda();
-  
-  
+colorCode();
 
-  // don't like this one.
-  // function displayTime() {
-  //   console.log("call time!");
-  //   //change dayjs formatting to central time
-  //     setInterval (function()
-  //   {
-  //     var currentTime = dayjs();
-  //     $("#currentDay").text(currentTime.format('dddd, MMMM DD, YYYY -- HH:mm'));
-  //   }, );
-  //   }
-  //   displayTime();
-
-  
 });
 
 
