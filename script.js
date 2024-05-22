@@ -29,6 +29,8 @@ $(function () {
   // current hour in 24-hour time?
   function colorCode(){
     // just needed to use $(this) key properly, so classes would only be added to that particular element, instead of all elements of class time-block
+    //also can't use exact code $(this) in git comment or it skips it
+
     var hour = dayjs().hour();
     console.log(hour);
     
