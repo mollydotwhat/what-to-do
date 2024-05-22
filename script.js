@@ -28,21 +28,28 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   function colorCode(){
-    //currently doesn't work in that it's applying ALL the color-coding classes at once
+    // just needed to use $(this) key properly, so classes would only be added to that particular element, instead of all elements of class time-block
     var hour = dayjs().hour();
     console.log(hour);
-    //
+    
+
+
     $(".time-block").each(function (){
-      let parseHour = $(this).attr("id").split("hour");
-      let thisHour = parseInt(parseHour[1]);
-      console.log(thisHour);
-      if (thisHour < hour) {
-        $(".time-block").addClass('past');
-      } else if (thisHour === hour) {
-        $(".time-block").addClass('present');
-      } else if (thisHour > hour ){
-        $(".time-block").addClass('future');
+      var parseHour = $(this).attr("id").split("hour");
+      // var thisHour = parseInt(parseHour[1]);
+      // console.log(thisHour);
+      console.log(parseHour)
+      // console.log("comparing (schedule) " + thisHour + " to (now) " + hour);
+      if (parseHour[1] < hour) {
+        $(this).addClass('past');
+      } 
+      else if (parseHour[1]=== hour) {
+        $(this).addClass('present');
+      } 
+      else if (parseHour[1] > hour ){
+        $(this).addClass('future');
       };
+
     });
   }
  
