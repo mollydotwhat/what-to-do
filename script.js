@@ -28,6 +28,7 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   function colorCode(){
+    //currently doesn't work in that it's applying ALL the color-coding classes at once
     var hour = dayjs().hour();
     console.log(hour);
     //
